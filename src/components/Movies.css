@@ -1,0 +1,88 @@
+body{
+  background-color: black;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000;
+  color: #f5c518;
+  padding: 16px;
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: #f5c518;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 3px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  background-color: #f5c518;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.menu-toggle {
+  padding: 8px 12px;
+  background-color: transparent;
+  color: #f5c518;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-list {
+  position: absolute;
+  top: calc(100% + 2px);
+  list-style: none;
+  background-color: #000000;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sign-in-button {
+  padding: 8px 16px;
+  background-color: #f5c518;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.menu-list li {
+  color: #f5c518;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
