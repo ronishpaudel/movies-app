@@ -1,4 +1,3 @@
-import React from "react";
 import MoviesApi from "@/components/MoviesApi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 

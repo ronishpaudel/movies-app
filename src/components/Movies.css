@@ -1,4 +1,4 @@
-body{
+body {
   background-color: black;
 }
 
@@ -11,7 +11,6 @@ body{
   padding: 16px;
 }
 
-
 .logo-container {
   display: flex;
   align-items: center;
@@ -22,7 +21,7 @@ body{
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
-  margin-right: 15px;
+  margin-right: 20px;
 }
 
 .search-container {
@@ -44,30 +43,7 @@ body{
   font-weight: bold;
   border: none;
   border-radius: 2px;
-  cursor: pointer;
-}
-
-.user-menu {
-  position: relative;
-}
-
-.menu-toggle {
-  padding: 8px 12px;
-  background-color: transparent;
-  color: #f5c518;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.menu-list {
-  position: absolute;
-  top: calc(100% + 2px);
-  list-style: none;
-  background-color: #000000;
-  padding: 8px;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer
 }
 
 .sign-in-button {
@@ -80,9 +56,33 @@ body{
   cursor: pointer;
 }
 
-.menu-list li {
-  color: #f5c518;
-  padding: 8px 12px;
-  cursor: pointer;
+.Details {
+  color: white;
 }
 
+.options-container {
+  display: flex;
+  align-items: center;
+}
+
+.option-button {
+  padding: 8px 16px;
+  background-color: #f5c518;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.popular-section{
+  margin:10px;
+}
+.Popular{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border:none;
+  background-color: #f5c518;
+  color: black;
+  padding:6px;
+  border-radius: 2px;
+}

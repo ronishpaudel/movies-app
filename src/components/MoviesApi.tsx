@@ -1,24 +1,24 @@
+import PopularMovies from "@/details/PopularMovies";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
+import React from "react";
+
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+}
 
 const MoviesApi = () => {
   const [movies, setMovies] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
 
   const fetchMovieData = async () => {
     try {
       const response = await axios.get(
-        `https://www.omdbapi.com/?i=tt3896198&apikey=6f32a2f9&t=${encodeURIComponent(
-          movies
-        )}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
       );
-      return response.data;
+      return response.data.results;
     } catch (e) {
       if (e instanceof Error) {
         console.log("Error Detected");
@@ -26,19 +26,15 @@ const MoviesApi = () => {
     }
   };
 
-  const { data, refetch } = useQuery({
+  const { data, refetch } = useQuery<Movie[], Error>({
     queryKey: ["moviesApi", movies],
     queryFn: fetchMovieData,
-    enabled: false,
+    enabled: true,
     retry: false,
     onError: (e: Error) => {
       console.log(e.message);
     },
   });
-
-  const handleSignIn = () => {
-    setIsLoggedIn(true);
-  };
 
   return (
     <>
@@ -63,35 +59,15 @@ const MoviesApi = () => {
             </button>
           </div>
         </div>
-        <div className="user-menu">
-          <button className="menu-toggle" onClick={toggleMenu}>
-            Menu
-          </button>
-          {!isLoggedIn && (
-            <button className="sign-in-button" onClick={handleSignIn}>
-              Sign In
-            </button>
-          )}
-          {showMenu && (
-            <ul className="menu-list">
-              <li>Option 1</li>
-              <li>Option 2</li>
-              <li>Option 3</li>
-            </ul>
-          )}
+        <div className="options-container">
+          <button className="sign-in-button">Sign In</button>
         </div>
       </header>
       <main>
-        {data && movies !== "" && (
-          <div>
-            <div>{data.Title}</div>
-            <div>{data.Year}</div>
-            <div>{data.Actors}</div>
-            <div>{data.imdbRatings}</div>
-            <div>{data.BoxOffice}</div>
-            {isLoggedIn && <button>Add to Watchlist</button>}
-          </div>
-        )}
+        <div className="popular-section">
+          <strong className="Popular">Popular Movies</strong>
+          <PopularMovies />
+        </div>
       </main>
       <footer></footer>
     </>

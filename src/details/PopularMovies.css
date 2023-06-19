@@ -1,0 +1,50 @@
+.popular-movies {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .movie-container {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: scrollMovies 20s linear infinite;
+  }
+  
+  @keyframes scrollMovies {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100px * 12)); /* Adjust the value to match the number of movie cards */
+    }
+  }
+  
+  .movie-card {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #dfdf53;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .movie-details {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .movie-title {
+    font-weight: bold;
+    color:white;
+  }
+  
