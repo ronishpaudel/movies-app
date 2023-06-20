@@ -1,4 +1,5 @@
-import MoviesApi from "@/components/MoviesApi";
+import { MoviesApp } from "@/components/MoviesApp";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
@@ -6,7 +7,7 @@ const index = () => {
   return (
     <div>
       <QueryClientProvider client={queryClient}>
-        <MoviesApi />
+        <MoviesApp />
       </QueryClientProvider>
     </div>
   );
