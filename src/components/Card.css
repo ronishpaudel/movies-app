@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:10px;
+    cursor: pointer;
+  }
+  .card:hover{
+     background-color:black;
+     color:#f5c518
+  }
+  .card {
+    width: 200px;
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(6, 6, 6, 0.3);
+    background-color:  #f5c518;
+  }
+  
+  .poster {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .details {
+    margin-top: 2px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .release-date {
+    margin-top: 5px;
+    font-size: 14px;
+  
+  }
+  
+  .overview {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  
