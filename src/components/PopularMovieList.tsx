@@ -1,5 +1,5 @@
 import { usePopularMovies } from "@/API/usePopularMovies";
-import { TMovie } from "@/types/Tmovie";
+import { TMovie } from "@/types/TMovie";
 
 const PopularMovieList = () => {
   const { data } = usePopularMovies();

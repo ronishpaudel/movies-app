@@ -1,6 +1,6 @@
 import { useQuery, QueryFunction } from "@tanstack/react-query";
 import { API } from "./api";
-import { TMovie } from "@/types/Tmovie";
+import { TMovie } from "@/types/TMovie";
 
 export const searchResultKeys = {
   all: ["searchResult"] as const,
@@ -18,14 +18,14 @@ const fetchMovieData: QueryFunction<TMovie[], TSearchQueryKey> = async (
 };
 
 const useMovieSearch = (
-  searchInput: string,
-  { onSuccess, cacheTime }: { onSuccess: () => void; cacheTime: number }
+  searchInput: string
+  // { onSuccess, cacheTime }: { onSuccess: () => void; cacheTime: number }
 ) => {
   const moviesQuery = useQuery({
     queryKey: searchResultKeys.search(searchInput),
     queryFn: fetchMovieData,
-    onSuccess,
-    cacheTime,
+    // onSuccess,
+    // cacheTime,
   });
   return moviesQuery;
 };

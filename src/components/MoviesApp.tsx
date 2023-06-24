@@ -1,16 +1,14 @@
-import { useMovies } from "@/API/useMovie";
-import React from "react";
-
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-  overview: string;
-}
+import React, { useState } from "react";
+import { Card } from "./Card";
+import { useMovieSearch } from "@/API/useMovieSearch";
+import { PopularMovieList } from "./PopularMovieList";
+import { useDebounce } from "@/hooks/useDebounce";
 
 const MoviesApp = () => {
-  const { data } = useMovies();
+  const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
+  const { data } = useMovieSearch(debouncedSearchQuery);
 
   return (
     <>
@@ -18,39 +16,19 @@ const MoviesApp = () => {
         <div className="logo-container">
           <div className="logo">RMDb</div>
         </div>
-        <div className="options-container">
-          <button className="sign-in-button">Sign In</button>
-        </div>
+        <input
+          className="input"
+          placeholder="Search movie"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </header>
       <main>
-        <div>
-          <strong className="Upcoming">Upcoming Movies</strong>
-          <div className="trending-movies">
-            {data && (
-              <div className="movie-container">
-                {data.map((movie: Movie) => (
-                  <div key={movie.id} className="movie-card">
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                      alt={movie.title}
-                      className="movie-poster"
-                    />
-                    <div className="movie-details">
-                      <div className="movie-title">{movie.title}</div>
-                      <div className="movie-release-date">
-                        Release Date: {movie.release_date}
-                      </div>
-                      <div className="movie-overview">{movie.overview}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-        <div>
-          <strong className="Popular">Popular Movies</strong>
-        </div>
+        {data?.length ? (
+          data.map((movie, index) => <Card key={index} movie={movie} />)
+        ) : (
+          <PopularMovieList />
+        )}
       </main>
       <footer></footer>
     </>

@@ -1,6 +1,6 @@
 import { QueryFunction, useQuery } from "@tanstack/react-query";
 import { API } from "./api";
-import { TMovie } from "@/types/Tmovie";
+import { TMovie } from "@/types/TMovie";
 
 const popularMoviesKeys = {
   all: ["popularMovies"] as const,

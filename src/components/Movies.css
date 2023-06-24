@@ -23,48 +23,11 @@ body {
   text-decoration: none;
   margin-right: 20px;
 }
-
-
-
-
-.sign-in-button {
-  padding: 8px 16px;
-  background-color: #f5c518;
-  color: #000000;
-  font-weight: bold;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.Details {
-  color: white;
-}
-
-.options-container {
+.input{
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  width:300px;
+  height:25px;
+  border-radius: 5px;
 }
-
-.option-button {
-  padding: 8px 16px;
-  background-color: #f5c518;
-  color: #000000;
-  font-weight: bold;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  margin-right: 8px;
-}
-.popular-section{
-  margin:10px;
-}
-.Upcoming{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border:none;
-  background-color: #f5c518;
-  color: black;
-  padding:6px;
-  border-radius: 2px;
-}
-

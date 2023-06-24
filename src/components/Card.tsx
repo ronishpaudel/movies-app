@@ -1,4 +1,4 @@
-import { TMovie } from "@/types/Tmovie";
+import { TMovie } from "@/types/TMovie";
 
 interface CardProps {
   movie: TMovie;
