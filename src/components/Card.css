@@ -3,12 +3,14 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
+  gap:24px;
 }
 main{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
+  gap:24px;
 }
 
 .card {
