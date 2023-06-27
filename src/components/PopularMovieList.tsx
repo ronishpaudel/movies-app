@@ -1,5 +1,6 @@
+import React from "react";
 import { usePopularMovies } from "@/API/usePopularMovies";
-import { TMovie } from "@/types/TMovie";
+import { Card } from "./Card";
 
 const PopularMovieList = () => {
   const { data } = usePopularMovies();
@@ -7,17 +8,12 @@ const PopularMovieList = () => {
   return (
     <div className="container">
       {data &&
-        data.map((movie: TMovie) => (
-          <div key={movie.id} className="card">
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              alt={movie.title}
-              className="poster"
-            />
-            <div className="details">
-              <div className="title">{movie.title}</div>
-            </div>
-          </div>
+        data.map((movie) => (
+          <Card
+            key={movie.id}
+            movie={movie}
+            onClick={() => console.log("card click")}
+          />
         ))}
     </div>
   );
