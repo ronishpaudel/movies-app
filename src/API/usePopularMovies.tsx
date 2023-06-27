@@ -15,11 +15,10 @@ const fetchCardsData: QueryFunction<TMovie[], TPopularQueryKey> = async () => {
 
 const usePopularMovies = () => {
   //asdkhb
-  const cardsQuery = useQuery({
+  return useQuery({
     queryKey: popularMoviesKeys.all,
     queryFn: fetchCardsData,
   });
-  return cardsQuery;
 };
 
 export { usePopularMovies };
