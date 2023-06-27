@@ -10,9 +10,9 @@ export const searchResultKeys = {
 type TSearchQueryKey = ReturnType<typeof searchResultKeys.search>;
 
 const fetchMovieData: QueryFunction<TMovie[], TSearchQueryKey> = async (
-  _context
+  context
 ) => {
-  const query = _context.queryKey[1].query;
+  const query = context.queryKey[1].query;
   const response = await API.get(`search/movie?query=${query}`);
   return response.data.results;
 };

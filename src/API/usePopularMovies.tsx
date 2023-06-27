@@ -7,7 +7,7 @@ const popularMoviesKeys = {
 };
 
 type TPopularQueryKey = typeof popularMoviesKeys.all;
-
+//asd
 const fetchCardsData: QueryFunction<TMovie[], TPopularQueryKey> = async () => {
   const response = await API.get("movie/popular");
   return response.data.results;
