@@ -7,13 +7,14 @@ const popularMoviesKeys = {
 };
 
 type TPopularQueryKey = typeof popularMoviesKeys.all;
-//asd
+//asdsd
 const fetchCardsData: QueryFunction<TMovie[], TPopularQueryKey> = async () => {
   const response = await API.get("movie/popular");
   return response.data.results;
 };
 
 const usePopularMovies = () => {
+  //asdkhb
   const cardsQuery = useQuery({
     queryKey: popularMoviesKeys.all,
     queryFn: fetchCardsData,
