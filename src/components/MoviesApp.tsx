@@ -4,6 +4,7 @@ import { useMovieSearch } from "@/API/useMovieSearch";
 import { useDebounce } from "@/hooks/useDebounce";
 import { usePopularMovies } from "@/API/usePopularMovies";
 import { useRouter } from "next/router";
+import ColorPalette from "./ColorPalette";
 
 const PopularMovieList = () => {
   const { data } = usePopularMovies();
@@ -41,6 +42,10 @@ const MoviesApp = () => {
 
   const router = useRouter();
 
+  function handleColorChange(color: string) {
+    console.log(color);
+  }
+
   return (
     <>
       <header className="header">
@@ -53,6 +58,7 @@ const MoviesApp = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
+        <ColorPalette onClick={handleColorChange} />
       </header>
       <main>
         {data?.length ? (

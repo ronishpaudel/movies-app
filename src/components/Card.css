@@ -61,3 +61,13 @@ main {
     gap: 16px;
   }
 }
+.color-palette {
+  display: flex;
+}
+.color-option {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  cursor: pointer;
+}
+
