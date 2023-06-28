@@ -4,7 +4,7 @@ import { TMovie } from "@/types/TMovie";
 interface CardProps {
   movie: TMovie;
   onClick: () => void;
-  bgColor?: string;
+  bgColor: string;
 }
 
 const Card = ({ movie, onClick, bgColor }: CardProps) => {
