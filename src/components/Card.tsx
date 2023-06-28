@@ -1,16 +1,23 @@
 import React from "react";
 import { TMovie } from "@/types/TMovie";
+import { useSnapshot } from "valtio";
+import { COLOR_PALETTE, colorPaletteStore } from "@/store/colorPalette.store";
 
 interface CardProps {
   movie: TMovie;
   onClick: () => void;
-  bgColor: string;
 }
 
-const Card = ({ movie, onClick, bgColor }: CardProps) => {
+const Card = ({ movie, onClick }: CardProps) => {
+  const colorPaletteSnap = useSnapshot(colorPaletteStore);
+
   return (
     <div className="container" onClick={onClick}>
-      <div key={movie.id} className="card" style={{ backgroundColor: bgColor }}>
+      <div
+        key={movie.id}
+        className="card"
+        style={{ backgroundColor: COLOR_PALETTE[colorPaletteSnap.color] }}
+      >
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}

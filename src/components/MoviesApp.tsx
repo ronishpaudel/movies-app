@@ -15,12 +15,6 @@ const MoviesApp = () => {
 
   const router = useRouter();
 
-  const [bgColor, setBgColor] = useState("");
-
-  const handleColorChange = (color: string) => {
-    setBgColor(color);
-  };
-
   return (
     <>
       <header className="header">
@@ -33,7 +27,7 @@ const MoviesApp = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <ColorPalette onClick={handleColorChange} />
+        <ColorPalette />
       </header>
       <main>
         {data?.length ? (
@@ -53,7 +47,6 @@ const MoviesApp = () => {
                   },
                 })
               }
-              bgColor={bgColor}
             />
           ))
         ) : (
@@ -76,7 +69,6 @@ const MoviesApp = () => {
                         },
                       })
                     }
-                    bgColor={bgColor}
                   />
                 ))}
               </div>

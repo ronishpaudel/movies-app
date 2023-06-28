@@ -1,22 +1,21 @@
-interface ColorPaletteProps {
-  onClick: (color: string) => void;
-}
+import {
+  COLOR_PALETTE,
+  ColorName,
+  colorPaletteStore,
+} from "@/store/colorPalette.store";
 
-const ColorPalette: React.FC<ColorPaletteProps> = ({ onClick }) => {
-  const colors = ["#FF0000", "#f5c518", "#00FF00", "#0000FF"];
-
-  const handleColorChange = (color: string) => {
-    onClick(color);
-  };
-
+const ColorPalette = () => {
+  const colors = Object.keys(COLOR_PALETTE) as ColorName[];
   return (
     <div className="color-palette">
       {colors.map((color) => (
         <div
           key={color}
           className="color-option"
-          style={{ backgroundColor: color }}
-          onClick={() => handleColorChange(color)}
+          style={{ backgroundColor: COLOR_PALETTE[color] }}
+          onClick={() => {
+            colorPaletteStore.setColor(color);
+          }}
         ></div>
       ))}
     </div>
