@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useMovieSearch } from "@/API/useMovieSearch";
 import { useDebounce } from "@/hooks/useDebounce";
 import { usePopularMovies } from "@/API/usePopularMovies";
 import { useRouter } from "next/router";
-import ColorPalette from "./ColorPalette";
 import Card from "./Card";
+import { ColorPalette } from "./ColorPalette";
 
 const MoviesApp = () => {
   const [searchQuery, setSearchQuery] = useState("");

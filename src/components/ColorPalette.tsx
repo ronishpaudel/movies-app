@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 interface ColorPaletteProps {
   onClick: (color: string) => void;
 }
@@ -25,4 +23,4 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ onClick }) => {
   );
 };
 
-export default ColorPalette;
+export { ColorPalette };
