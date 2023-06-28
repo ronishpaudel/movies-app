@@ -1,50 +1,25 @@
 import React, { useState } from "react";
-import { Card } from "./Card";
 import { useMovieSearch } from "@/API/useMovieSearch";
 import { useDebounce } from "@/hooks/useDebounce";
 import { usePopularMovies } from "@/API/usePopularMovies";
 import { useRouter } from "next/router";
 import ColorPalette from "./ColorPalette";
-
-const PopularMovieList = () => {
-  const { data } = usePopularMovies();
-  const router = useRouter();
-  return (
-    <div className="container">
-      {data &&
-        data.map((movie) => (
-          <Card
-            key={movie.id}
-            movie={movie}
-            onClick={() =>
-              router.push({
-                pathname: "/detail/[id]",
-                query: {
-                  id: movie.id,
-                  title: movie.title,
-                  poster: movie.poster_path,
-                  overview: movie.overview,
-                  rating: movie.popularity,
-                },
-              })
-            }
-          />
-        ))}
-    </div>
-  );
-};
+import Card from "./Card";
 
 const MoviesApp = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   const { data } = useMovieSearch(debouncedSearchQuery);
+  const { data: popularMoviesData } = usePopularMovies();
 
   const router = useRouter();
 
-  function handleColorChange(color: string) {
-    console.log(color);
-  }
+  const [bgColor, setBgColor] = useState("");
+
+  const handleColorChange = (color: string) => {
+    setBgColor(color);
+  };
 
   return (
     <>
@@ -78,10 +53,35 @@ const MoviesApp = () => {
                   },
                 })
               }
+              bgColor={bgColor}
             />
           ))
         ) : (
-          <PopularMovieList />
+          <>
+            {popularMoviesData && (
+              <div className="container">
+                {popularMoviesData.map((movie) => (
+                  <Card
+                    key={movie.id}
+                    movie={movie}
+                    onClick={() =>
+                      router.push({
+                        pathname: "/detail/[id]",
+                        query: {
+                          id: movie.id,
+                          title: movie.title,
+                          poster: movie.poster_path,
+                          overview: movie.overview,
+                          rating: movie.popularity,
+                        },
+                      })
+                    }
+                    bgColor={bgColor}
+                  />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </main>
       <footer></footer>

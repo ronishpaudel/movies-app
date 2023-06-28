@@ -50,3 +50,12 @@ body {
     width: 100%;
   }
 }
+@font-face {
+  font-family: 'Urbanist';
+  src:url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100&display=swap');
+
+}
+
+body {
+  font-family: 'Urbanist', sans-serif;
+}
