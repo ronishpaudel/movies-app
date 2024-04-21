@@ -24,7 +24,15 @@ const Card = ({ movie, onClick }: CardProps) => {
           className="poster"
         />
         <div className="details">
-          <div className="title">{movie.title}</div>
+          {COLOR_PALETTE[colorPaletteSnap.color] ? (
+            <div style={{ color: "white" }} className="title">
+              {movie.title}
+            </div>
+          ) : (
+            <div style={{ color: "black" }} className="title">
+              {movie.title}
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const MoviesApp = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
-  const { data } = useMovieSearch(debouncedSearchQuery);
+  const { data: movieId } = useMovieSearch(debouncedSearchQuery);
   const { data: popularMoviesData } = usePopularMovies();
 
   const router = useRouter();
@@ -30,8 +30,8 @@ const MoviesApp = () => {
         <ColorPalette />
       </header>
       <main>
-        {data?.length ? (
-          data.map((movie, index) => (
+        {movieId?.length ? (
+          movieId.map((movie, index) => (
             <Card
               key={index}
               movie={movie}
