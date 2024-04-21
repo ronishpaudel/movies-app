@@ -46,10 +46,8 @@ main {
   font-weight: bold;
 }
 
-
 @media (max-width: 768px) {
   .container {
-    justify-content: flex-start;
     gap: 16px;
   }
 
@@ -70,4 +68,3 @@ main {
   margin: 5px;
   cursor: pointer;
 }
-
