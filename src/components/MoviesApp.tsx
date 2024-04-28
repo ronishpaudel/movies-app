@@ -11,7 +11,6 @@ const MoviesApp = () => {
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
   const { data: movieId } = useMovieSearch(debouncedSearchQuery);
   const { data: popularMoviesData } = usePopularMovies();
-
   const router = useRouter();
 
   return (
