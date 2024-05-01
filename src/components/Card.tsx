@@ -10,7 +10,6 @@ interface CardProps {
 
 const Card = ({ movie, onClick }: CardProps) => {
   const colorPaletteSnap = useSnapshot(colorPaletteStore);
-
   return (
     <div className="container" onClick={onClick}>
       <div
