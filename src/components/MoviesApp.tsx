@@ -12,7 +12,7 @@ const MoviesApp = () => {
   const { data: movieId } = useMovieSearch(debouncedSearchQuery);
   const { data: popularMoviesData } = usePopularMovies();
   const router = useRouter();
-  
+
   return (
     <>
       <header className="header">
