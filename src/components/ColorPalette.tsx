@@ -5,6 +5,7 @@ import {
 } from "@/store/colorPalette.store";
 
 const ColorPalette = () => {
+  
   const colors = Object.keys(COLOR_PALETTE) as ColorName[];
   return (
     <div className="color-palette">
